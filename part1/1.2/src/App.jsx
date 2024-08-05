@@ -12,8 +12,6 @@ function App() {
     <div>
         <Header header={course}/>
         <Content part1= {part1} part2 = {part2} part3={part3} exercises1={exercises1} exercises2={exercises2} exercises3={exercises3}/>
-        <Total exercises1={exercises1} exercises2={exercises2} exercises3={exercises3}/>
-
     </div>
   )
 }
@@ -39,18 +37,6 @@ const Content = (props) => {
       </p>
         <p>
         {props.part3} {props.exercises3}
-      </p>
-
-    </div>
-  )
-}
-const Total= (props) => {
-  console.log(props)
-  let total = props.exercises1 + props.exercises2 + props.exercises3;
-  return (
-    <div>
-      <p>
-      {total}
       </p>
 
     </div>
