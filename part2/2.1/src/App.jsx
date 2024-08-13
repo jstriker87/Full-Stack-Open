@@ -28,16 +28,13 @@ const Content = (props) => {
 }
 
 const Part = (props) => {
-    const result = props.parts.course.course.parts.map(part => part.name + ' ' + part.exercises); 
   return (
     <div>
-        <ul>
         {props.parts.course.course.parts.map(part => 
-          <li>
+          <p key={part.id}>
                 {part.name + ' ' + part.exercises}
-          </li>
+          </p>
         )}
-      </ul>
     </div>
   )
 }
