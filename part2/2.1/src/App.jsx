@@ -31,7 +31,13 @@ const Part = (props) => {
     const result = props.parts.course.course.parts.map(part => part.name + ' ' + part.exercises); 
   return (
     <div>
-    {result}
+        <ul>
+        {props.parts.course.course.parts.map(part => 
+          <li>
+                {part.name + ' ' + part.exercises}
+          </li>
+        )}
+      </ul>
     </div>
   )
 }
