@@ -12,22 +12,23 @@ const [persons, setPersons] = useState([
     number: newNumber
   }
 
+   
   if (persons.some(e => e.name === personObject.name)) {
     window.alert(`${newName} is already added to phonebook`)
     setNewName('')
-  console.log('pel',personObject.name.length)
-  if (personObject.name.length === 0) {
-    window.alert(`Name has not not been entered`)
+    exit(-1)
+  }
+  if (personObject.name.length === 0 || personObject.number.length === 0) {
+    window.alert(`Name or number has not not been entered`)
     setNewName('')
+    exit(-1)
   }
 
-}else{
         setNewName('')
         setNewNumber('')
         setPersons(persons.concat(personObject))
    }
 
-}
  const nameChange = (event) => {
     setNewName(event.target.value)
     }
