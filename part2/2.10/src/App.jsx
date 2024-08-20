@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import Search from './components/Search'
+import Add from './components/Add'
+
 const App = () => {
 const [persons, setPersons] = useState([
     { name: 'Arto Hellas' }
@@ -42,16 +44,7 @@ const [persons, setPersons] = useState([
     <div>
       <h2>Phonebook</h2>
       <Search filterName={filterName} setFilterName={setFilterName} />
-      <form onSubmit={addPerson}>
-        <div>
-          <h2> Add a new </h2>
-          name: <input value={newName} onChange={nameChange}/>
-          number: <input value={newNumber} onChange={numberChange}/>
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
+      <Add newName={newName} newNumber={newNumber} addPerson={addPerson} setNewName={setNewName} setNewNumber={setNewNumber}/> 
       <h2>Numbers</h2>
     <ul>
         {persons
