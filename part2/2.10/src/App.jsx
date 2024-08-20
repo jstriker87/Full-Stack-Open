@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import Search from './components/Search'
 import Add from './components/Add'
+import Phonebook from './components/Phonebook'
+
 
 const App = () => {
 const [persons, setPersons] = useState([
@@ -33,28 +35,11 @@ const [persons, setPersons] = useState([
         setPersons(persons.concat(personObject))
    }
 
- const nameChange = (event) => {
-    setNewName(event.target.value)
-    }
- const numberChange = (event) => {
-    setNewNumber(event.target.value)
-    }
-  
   return (
     <div>
-      <h2>Phonebook</h2>
       <Search filterName={filterName} setFilterName={setFilterName} />
       <Add newName={newName} newNumber={newNumber} addPerson={addPerson} setNewName={setNewName} setNewNumber={setNewNumber}/> 
-      <h2>Numbers</h2>
-    <ul>
-        {persons
-            .filter(person => person.name.toLowerCase().includes(filterName.toLowerCase()))
-            .map(person => (
-                <p key={person.name}>
-                    {person.name} {person.number}
-                </p>
-        ))}
-</ul>
+      <Phonebook persons={persons} filterName={filterName}/>
     </div>
   )
 }
