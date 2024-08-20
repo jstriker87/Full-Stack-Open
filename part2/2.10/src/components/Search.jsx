@@ -1,10 +1,11 @@
-const Search= ({searchName},{filter}) => {
-  console.log({filter})
+const Search= ({filterName,setFilterName}) => {
+    const filterChange = (event) => {
+        setFilterName(event.target.value)
+    }
   return (
     <div>
-    filter shown with : <input value={searchName.searchName} onChange={filter.filterChange}/>
+    filter shown with : <input value={filterName} onChange={filterChange}/>
     </div>
   )
 }
-
 export default Search

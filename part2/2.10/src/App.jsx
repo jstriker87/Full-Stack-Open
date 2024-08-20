@@ -37,15 +37,11 @@ const [persons, setPersons] = useState([
  const numberChange = (event) => {
     setNewNumber(event.target.value)
     }
- const filterChange = (event) => {
-    setFilterName(event.target.value)
-    }
   
   return (
     <div>
       <h2>Phonebook</h2>
-      <Search searchName={filterName} filter={filterChange} />
-      filter shown with : <input value={filterName} onChange={filterChange}/>
+      <Search filterName={filterName} setFilterName={setFilterName} />
       <form onSubmit={addPerson}>
         <div>
           <h2> Add a new </h2>
