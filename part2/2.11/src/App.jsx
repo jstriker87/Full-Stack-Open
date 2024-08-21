@@ -11,9 +11,10 @@ const [persons, setPersons] = useState([])
   const [filterName, setFilterName] = useState('')
   const hook = () => {
         axios
-            .get('http://localhost:3001/notes')
+            .get('http://localhost:3001/persons')
             .then(response => {
                 setPersons(response.data)
+                console.log(setPersons)
             })
     }
 
