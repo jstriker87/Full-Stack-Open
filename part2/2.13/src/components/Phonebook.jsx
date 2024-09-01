@@ -1,4 +1,4 @@
-const Phonebook = ({persons, filterName}) => {
+const Phonebook = ({persons, filterName,deletePerson}) => {
   return (
   <div>
     <h2> Numbers </h2>
@@ -8,6 +8,7 @@ const Phonebook = ({persons, filterName}) => {
             .map(person => (
                 <p key={person.name}>
                     {person.name} {person.number}
+                     <button onClick={() => deletePerson(person.id)}>Delete</button>
                 </p>
         ))}
         </ul>

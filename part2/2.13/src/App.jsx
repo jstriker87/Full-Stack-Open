@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import Search from './components/Search'
 import Add from './components/Add'
 import Phonebook from './components/Phonebook'
-import axios from 'axios'
 import personsService from './services/persons'
 
 const App = () => {
@@ -10,6 +9,20 @@ const [persons, setPersons] = useState([])
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [filterName, setFilterName] = useState('')
+
+const deletePerson = (id) => {
+    const person = persons.filter(person => person.id === id)
+    if (window.confirm(`Do you really want to delete ${person.name}?`)) {
+     personsService
+    .deletePB(person)
+    .then(response => {
+        response.data
+        setPersons(persons.filter(person => person.id !== id))
+    })
+
+    }
+
+  }
 
 useEffect(() => {
     personsService
@@ -23,7 +36,8 @@ useEffect(() => {
     event.preventDefault()
     const personObject = {
     name: newName,
-    number: newNumber
+    number: newNumber,
+    id: String(persons.length + 1),
   }
     if (persons.some(e => e.name === personObject.name)) {
         window.alert(`${newName} is already added to phonebook`)
@@ -52,7 +66,7 @@ useEffect(() => {
     <div>
       <Search filterName={filterName} setFilterName={setFilterName} />
       <Add newName={newName} newNumber={newNumber} addPerson={addPerson} setNewName={setNewName} setNewNumber={setNewNumber}/> 
-      <Phonebook persons={persons} filterName={filterName}/>
+      <Phonebook persons={persons} filterName={filterName} deletePerson={deletePerson}/>
     </div>
   )
 }
