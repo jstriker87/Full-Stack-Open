@@ -1,0 +1,39 @@
+[4mGIT-COUNT-OBJECTS[24m(1)                                                                                 Git Manual                                                                                 [4mGIT-COUNT-OBJECTS[24m(1)
+
+[1mNAME[0m
+       git-count-objects - Count unpacked number of objects and their disk consumption
+
+[1mSYNOPSIS[0m
+       [4mgit[24m [4mcount-objects[24m [-v] [-H | --human-readable]
+
+[1mDESCRIPTION[0m
+       Counts the number of unpacked object files and disk space consumed by them, to help you decide when it is a good time to repack.
+
+[1mOPTIONS[0m
+       -v, --verbose
+           Provide more detailed reports:
+
+           count: the number of loose objects
+
+           size: disk space consumed by loose objects, in KiB (unless -H is specified)
+
+           in-pack: the number of in-pack objects
+
+           size-pack: disk space consumed by the packs, in KiB (unless -H is specified)
+
+           prune-packable: the number of loose objects that are also present in the packs. These objects could be pruned using [1mgit prune-packed[22m.
+
+           garbage: the number of files in the object database that are neither valid loose objects nor valid packs
+
+           size-garbage: disk space consumed by garbage files, in KiB (unless -H is specified)
+
+           alternate: absolute path of alternate object databases; may appear multiple times, one line per path. Note that if the path contains non-printable characters, it may be surrounded by double-quotes and
+           contain C-style backslashed escape sequences.
+
+       -H, --human-readable
+           Print sizes in human readable format
+
+[1mGIT[0m
+       Part of the [1mgit[22m(1) suite
+
+Git 2.46.0                                                                                           07/29/2024                                                                                 [4mGIT-COUNT-OBJECTS[24m(1)
