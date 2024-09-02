@@ -1,21 +1,6 @@
 {
   "persons": [
     {
-      "id": "3",
-      "name": "amy",
-      "number": "103040"
-    },
-    {
-      "id": "4",
-      "name": "George",
-      "number": "46780"
-    },
-    {
-      "id": "5",
-      "name": "Tanya",
-      "number": "1030"
-    },
-    {
       "id": "6",
       "name": "fefefe",
       "number": "12323323"

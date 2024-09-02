@@ -26,16 +26,6 @@ const deletePerson = (id) => {
         response.data
         setPersons(persons.filter(person => person.id !== id))
     })
-    .catch(error => {
-        setErrorMessage(
-          `ID: ${id}' was already removed from server`
-        )
-        setTimeout(() => {
-          setErrorMessage(null)
-        }, 5000)
-        return
-      })
-
     }
 
   }
@@ -72,8 +62,15 @@ useEffect(() => {
                     setMessage(null)
                 }, 5000)
               })
+              .catch(error => {
+                setErrorMessage(
+                  `Test`
+                )
+                setTimeout(() => {
+                  setErrorMessage(null)
+                }, 5000)
+              })
         }
-        return
     }
     if (personObject.name.length === 0 || personObject.number.length === 0) {
         window.alert(`Name or number has not not been entered`)
@@ -109,3 +106,4 @@ useEffect(() => {
 }
 
 export default App
+
