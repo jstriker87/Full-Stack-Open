@@ -32,15 +32,6 @@ useEffect(() => {
     })
   }, [])
 
-const updateNumberOf = id => {
-  const person = persons.find(n => n.id === id)
-  const changedPerson = { ...person, number: person.number}
-  personsService
-   .update(id,changedPerson)
-    .then(returnedPerson => {
-        setNotes(notes.map(note => note.id !== id ? note : returnedPerson))
-      })
-}
 
   const addPerson = (event) => {
     event.preventDefault()
@@ -49,9 +40,18 @@ const updateNumberOf = id => {
     number: newNumber,
     id: String(persons.length + 1),
   }
-    if (persons.some(e => e.name === personObject.name)) {
+
+    const result = persons.find(e => e.name === personObject.name);
+    if (result) {
         if (window.confirm(`is already added to the phonebook. Replace the old number with a new one? ${personObject.name}?`)) {
-            updateNumberOf(personObject.id)
+            const changedPerson = { ...result, number: personObject.number}
+            personsService
+           .update(result.id,changedPerson)
+            .then(returnedPerson => {
+                setPersons(persons.map(person => person.id !== result.id ? person: returnedPerson.data))
+              })
+        }
+        return
     }
     if (personObject.name.length === 0 || personObject.number.length === 0) {
         window.alert(`Name or number has not not been entered`)
@@ -68,7 +68,6 @@ const updateNumberOf = id => {
 
         })
     }
-}
 
   return (
     <div>
