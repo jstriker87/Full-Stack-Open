@@ -63,14 +63,13 @@ useEffect(() => {
                 }, 5000)
               })
               .catch(error => {
-                setErrorMessage(
-                  `Test`
+                 setErrorMessage(
+                    `Note '${personObject.name}' has already been deleted from the server`
                 )
-                setTimeout(() => {
-                  setErrorMessage(null)
-                }, 5000)
-              })
+                setPersons(persons.filter(person => person.id !== changedPerson.id))
+    })
         }
+        return
     }
     if (personObject.name.length === 0 || personObject.number.length === 0) {
         window.alert(`Name or number has not not been entered`)
