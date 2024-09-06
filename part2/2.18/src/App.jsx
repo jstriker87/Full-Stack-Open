@@ -14,7 +14,8 @@ const App = () => {
         .get(`https://studies.cs.helsinki.fi/restcountries/api/all/`)
         .then(response => {
           setRates(response.data)
-          response.data.forEach(country => {
+          let test = rates.filter(country => country.name.common.toLowerCase().includes(countries.toLowerCase()))
+          test.forEach(country => {
                 console.log(country['name']['common']);
           });
            //let test = rates.filter(country => country.name.common.toLowerCase().includes(countries.toLowerCase()))
