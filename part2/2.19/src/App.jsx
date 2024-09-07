@@ -25,6 +25,12 @@ const App = () => {
     
   }
 
+
+const toggleImportanceOf = (id) => {
+    console.log('importance of ' + id + ' needs to be toggled')
+    setSelectedCountries(id)
+  }
+
 if (results && results.length > 10) {
     return (
      <div>
@@ -52,6 +58,7 @@ if (results) {
             .map(country => (
                 <p key={country.capital}>
                     {country.name.common} 
+                     <button onClick={() => toggleImportanceOf(country.name.common)}>Show</button>
                 </p>
         ))}
 
