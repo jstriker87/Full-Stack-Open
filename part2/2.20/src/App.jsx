@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Country from './components/Country'
-
 const App = () => {
   const [allCountries, setCountries] = useState([])
   const [countries, setSelectedCountries] = useState('')
  const [results, setResults] = useState(null) 
   useEffect(() => {
-    console.log('effect run, countries are now', countries)
 
     if (countries) {
       axios

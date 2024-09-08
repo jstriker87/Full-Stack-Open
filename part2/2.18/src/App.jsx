@@ -6,6 +6,7 @@ const App = () => {
   const [allCountries, setCountries] = useState([])
   const [countries, setSelectedCountries] = useState('')
  const [results, setResults] = useState(null) 
+
   useEffect(() => {
     console.log('effect run, countries are now', countries)
 
